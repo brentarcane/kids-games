@@ -1,5 +1,7 @@
 export type Carrot = { id: number; x: number; z: number; collected: boolean };
 
+export type Star = { id: number; x: number; z: number; collected: boolean };
+
 export type TreeData = {
   x: number;
   z: number;

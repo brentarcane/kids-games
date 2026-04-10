@@ -1,14 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
+import { useCallback, useEffect, useState } from "react";
 import { BG_MUSIC_PATH, CARROT_COUNT } from "./game/constants";
-import type { Carrot } from "./game/types";
-import { WORLD } from "./game/world-gen";
 import { Scene } from "./game/Scene";
-import { HUD } from "./game/ui/HUD";
+import type { Carrot, Star } from "./game/types";
 import { GameOverOverlay } from "./game/ui/GameOverOverlay";
+import { HUD } from "./game/ui/HUD";
 import { PauseOverlay } from "./game/ui/PauseOverlay";
+import { WORLD } from "./game/world-gen";
 
 export default function Game() {
   const [carrots, setCarrots] = useState<Carrot[]>(() =>
@@ -18,8 +18,15 @@ export default function Game() {
   const [gameOver, setGameOver] = useState(false);
   const [showMeshLabels, setShowMeshLabels] = useState(false);
   const [sceneKey, setSceneKey] = useState(0);
+  const [rodPickedUp, setRodPickedUp] = useState(false);
+  const [rodDelivered, setRodDelivered] = useState(false);
+  const [fishFound, setFishFound] = useState(false);
+  const [stars, setStars] = useState<Star[]>(() =>
+    WORLD.stars.map((s) => ({ ...s })),
+  );
 
   const collectedCount = carrots.filter((c) => c.collected).length;
+  const starsCollected = stars.filter((s) => s.collected).length;
 
   const onCollectCarrot = useCallback((id: number) => {
     setCarrots((prev) =>
@@ -28,10 +35,22 @@ export default function Game() {
   }, []);
 
   const onCaught = useCallback(() => setGameOver(true), []);
+  const onPickUpRod = useCallback(() => setRodPickedUp(true), []);
+  const onDeliverRod = useCallback(() => setRodDelivered(true), []);
+  const onFindFish = useCallback(() => setFishFound(true), []);
+  const onCollectStar = useCallback((id: number) => {
+    setStars((prev) =>
+      prev.map((s) => (s.id === id ? { ...s, collected: true } : s)),
+    );
+  }, []);
 
   const restart = useCallback(() => {
     setGameOver(false);
     setCarrots(WORLD.carrots.map((c) => ({ ...c })));
+    setRodPickedUp(false);
+    setRodDelivered(false);
+    setFishFound(false);
+    setStars(WORLD.stars.map((s) => ({ ...s })));
     setSceneKey((k) => k + 1);
   }, []);
 
@@ -72,9 +91,7 @@ export default function Game() {
 
   return (
     <div className="relative w-screen h-screen bg-black">
-      <Canvas
-        camera={{ fov: 60, near: 0.1, far: 500, position: [0, 5, 10] }}
-      >
+      <Canvas camera={{ fov: 60, near: 0.1, far: 500, position: [0, 5, 10] }}>
         <Scene
           key={sceneKey}
           carrots={carrots}
@@ -83,12 +100,24 @@ export default function Game() {
           gameOver={gameOver}
           onCaught={onCaught}
           showMeshLabels={showMeshLabels}
+          rodPickedUp={rodPickedUp}
+          rodDelivered={rodDelivered}
+          onPickUpRod={onPickUpRod}
+          onDeliverRod={onDeliverRod}
+          fishFound={fishFound}
+          onFindFish={onFindFish}
+          stars={stars}
+          onCollectStar={onCollectStar}
         />
       </Canvas>
       <HUD
         collected={collectedCount}
         total={CARROT_COUNT}
         showMeshLabels={showMeshLabels}
+        rodPickedUp={rodPickedUp}
+        rodDelivered={rodDelivered}
+        fishFound={fishFound}
+        starsCollected={starsCollected}
       />
       {gameOver && <GameOverOverlay onRestart={restart} />}
       {paused && !gameOver && (

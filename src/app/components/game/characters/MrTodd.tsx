@@ -1,9 +1,9 @@
 "use client";
 
-import { type RefObject, useMemo } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import * as THREE from "three";
+import { type RefObject, useMemo } from "react";
+import type * as THREE from "three";
 import * as SkeletonUtils from "three/examples/jsm/utils/SkeletonUtils.js";
 import {
   FOX_MODEL_PATH,

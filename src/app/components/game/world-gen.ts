@@ -1,5 +1,19 @@
-import { CARROT_COUNT, FENCE_SECTION_WIDTH, WORLD_RADIUS } from "./constants";
-import type { Carrot, FlowerData, GardenData, RockData, TreeData } from "./types";
+import {
+  CARROT_COUNT,
+  FENCE_SECTION_WIDTH,
+  FROG_SPAWN_X,
+  FROG_SPAWN_Z,
+  STAR_COUNT,
+  WORLD_RADIUS,
+} from "./constants";
+import type {
+  Carrot,
+  FlowerData,
+  GardenData,
+  RockData,
+  Star,
+  TreeData,
+} from "./types";
 
 function seededRandom(seed: number) {
   let s = seed;
@@ -94,7 +108,34 @@ function generateWorld() {
     });
   }
 
-  return { trees, flowers, rocks, carrots, gardens };
+  // Fishing rod — pick a spot at least 30 units away from Jeremy Fisher
+  let rodX = 0;
+  let rodZ = 0;
+  for (;;) {
+    const angle = rng() * Math.PI * 2;
+    const dist = 15 + rng() * (WORLD_RADIUS - 30);
+    rodX = Math.cos(angle) * dist;
+    rodZ = Math.sin(angle) * dist;
+    const dx = rodX - FROG_SPAWN_X;
+    const dz = rodZ - FROG_SPAWN_Z;
+    if (dx * dx + dz * dz > 30 * 30) break;
+  }
+  const fishingRod = { x: rodX, z: rodZ };
+
+  // Stars — spread across the map for the unicorn quest
+  const stars: Star[] = [];
+  for (let i = 0; i < STAR_COUNT; i++) {
+    const angle = rng() * Math.PI * 2;
+    const dist = 25 + rng() * (WORLD_RADIUS - 40);
+    stars.push({
+      id: i,
+      x: Math.cos(angle) * dist,
+      z: Math.sin(angle) * dist,
+      collected: false,
+    });
+  }
+
+  return { trees, flowers, rocks, carrots, gardens, fishingRod, stars };
 }
 
 export const WORLD = generateWorld();

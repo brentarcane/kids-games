@@ -1,8 +1,8 @@
 "use client";
 
-import { type RefObject, useLayoutEffect, useMemo, useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { Html, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import { type RefObject, useLayoutEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import {
   GROUND_Y,
@@ -14,18 +14,17 @@ import {
   MERCAT_SPAWN_Z,
   MERCAT_TOUCH_RADIUS,
   MERCAT_VOICE_COOLDOWN,
+  MERCAT_VOICE_PATH,
   MERCAT_VOICE_RADIUS,
   MERCAT_WAYPOINT_RADIUS,
-  MERCAT_VOICE_PATH,
   SPEED_BOOST_DURATION,
 } from "../constants";
 import { useAnimatedModel } from "../hooks/useAnimatedModel";
 import { useProximityVoice } from "../hooks/useProximityVoice";
 
 function MercatModel({ paused }: { paused: boolean }) {
-  const { clonedScene, animRootRef, walkActionRef } = useAnimatedModel(
-    MERCAT_MODEL_PATH,
-  );
+  const { clonedScene, animRootRef, walkActionRef } =
+    useAnimatedModel(MERCAT_MODEL_PATH, { clone: "skeleton" });
 
   useFrame(() => {
     const walkAction = walkActionRef.current;
@@ -64,6 +63,7 @@ export function Mercat({
     cooldown: MERCAT_VOICE_COOLDOWN,
   });
   const _look = useMemo(() => new THREE.Vector3(), []);
+  const [showSpeech, setShowSpeech] = useState(false);
 
   useLayoutEffect(() => {
     const g = groupRef.current;
@@ -92,7 +92,9 @@ export function Mercat({
       onBoost();
     }
 
-    updateVoice(delta, cdx * cdx + cdz * cdz);
+    const distSq = cdx * cdx + cdz * cdz;
+    updateVoice(delta, distSq);
+    setShowSpeech(distSq < MERCAT_VOICE_RADIUS * MERCAT_VOICE_RADIUS);
 
     const [wx, wz] = waypoint.current;
     const dx = wx - mx;
@@ -117,6 +119,20 @@ export function Mercat({
   return (
     <group ref={groupRef}>
       <MercatModel paused={paused} />
+      {showSpeech && (
+        <Html
+          center
+          position={[0, 3, 0]}
+          distanceFactor={14}
+          occlude={false}
+          style={{ pointerEvents: "none" }}
+          zIndexRange={[16777271, 0]}
+        >
+          <div className="whitespace-nowrap rounded-lg bg-white/90 px-3 py-2 text-sm font-semibold text-gray-800 shadow-lg ring-1 ring-gray-300">
+            Welcome to my Peter Rabbit game!
+          </div>
+        </Html>
+      )}
     </group>
   );
 }

@@ -1,8 +1,8 @@
 "use client";
 
-import { type RefObject, useLayoutEffect, useMemo, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import { type RefObject, useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import {
   FARMER_CATCH_RADIUS,
@@ -18,9 +18,8 @@ import {
 import { useAnimatedModel } from "../hooks/useAnimatedModel";
 
 function FarmerModel({ paused }: { paused: boolean }) {
-  const { clonedScene, animRootRef, walkActionRef } = useAnimatedModel(
-    FARMER_MODEL_PATH,
-  );
+  const { clonedScene, animRootRef, walkActionRef } =
+    useAnimatedModel(FARMER_MODEL_PATH);
 
   useFrame(() => {
     const walkAction = walkActionRef.current;

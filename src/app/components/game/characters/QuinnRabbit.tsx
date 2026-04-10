@@ -1,8 +1,15 @@
 "use client";
 
-import { type RefObject, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Html, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import {
+  type RefObject,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import * as THREE from "three";
 import * as SkeletonUtils from "three/examples/jsm/utils/SkeletonUtils.js";
 import {

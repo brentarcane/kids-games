@@ -1,5 +1,5 @@
-import { type RefObject, useLayoutEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import { type RefObject, useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 
 interface RoamingNPCOptions {
@@ -28,7 +28,11 @@ function pickWaypoint(range: number): [number, number] {
 export function useRoamingNPC(
   opts: RoamingNPCOptions,
   paused: boolean,
-  onFrame?: (delta: number, npcPos: THREE.Vector3, rabbitRef: RefObject<THREE.Group | null>) => void,
+  onFrame?: (
+    delta: number,
+    npcPos: THREE.Vector3,
+    rabbitRef: RefObject<THREE.Group | null>,
+  ) => void,
   rabbitRef?: RefObject<THREE.Group | null>,
 ) {
   const groupRef = useRef<THREE.Group>(null);

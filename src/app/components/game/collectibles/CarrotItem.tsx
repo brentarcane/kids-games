@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import * as THREE from "three";
+import { useMemo, useRef } from "react";
+import type * as THREE from "three";
 import * as SkeletonUtils from "three/examples/jsm/utils/SkeletonUtils.js";
 import { CARROT_MODEL_PATH, CARROT_SCALE } from "../constants";
 import type { Carrot } from "../types";

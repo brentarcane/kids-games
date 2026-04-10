@@ -1,10 +1,16 @@
 "use client";
 
-import { useLayoutEffect, useMemo, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import * as THREE from "three";
+import { useLayoutEffect, useMemo, useRef } from "react";
+import type * as THREE from "three";
 import * as SkeletonUtils from "three/examples/jsm/utils/SkeletonUtils.js";
-import { GROUND_Y, POND_MODEL_PATH, POND_SCALE, POND_X, POND_Z } from "../constants";
+import {
+  GROUND_Y,
+  POND_MODEL_PATH,
+  POND_SCALE,
+  POND_X,
+  POND_Z,
+} from "../constants";
 
 useGLTF.preload(POND_MODEL_PATH);
 

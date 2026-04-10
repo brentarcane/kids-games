@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo } from "react";
 import { useGLTF } from "@react-three/drei";
+import { useMemo } from "react";
 import {
   CHICKEN_MODEL_PATH,
   CHICKEN_SCALE,
@@ -22,13 +22,7 @@ function ChickenModel({ facing }: { facing: number }) {
 
 useGLTF.preload(CHICKEN_MODEL_PATH);
 
-function FenceWall({
-  sections,
-  length,
-}: {
-  sections: number;
-  length: number;
-}) {
+function FenceWall({ sections, length }: { sections: number; length: number }) {
   const posts = sections + 1;
   const totalWidth = sections * FENCE_SECTION_WIDTH;
   return (
@@ -47,21 +41,15 @@ function FenceWall({
       })}
       {Array.from({ length: sections }).map((_, i) => {
         const rx =
-          i * FENCE_SECTION_WIDTH -
-          totalWidth / 2 +
-          FENCE_SECTION_WIDTH / 2;
+          i * FENCE_SECTION_WIDTH - totalWidth / 2 + FENCE_SECTION_WIDTH / 2;
         return (
           <group key={`r-${length}-${rx}`}>
             <mesh position={[rx, FENCE_POST_HEIGHT * 0.8, 0]}>
-              <boxGeometry
-                args={[FENCE_SECTION_WIDTH - 0.1, 0.08, 0.06]}
-              />
+              <boxGeometry args={[FENCE_SECTION_WIDTH - 0.1, 0.08, 0.06]} />
               <meshStandardMaterial color="#8B6914" />
             </mesh>
             <mesh position={[rx, FENCE_POST_HEIGHT * 0.35, 0]}>
-              <boxGeometry
-                args={[FENCE_SECTION_WIDTH - 0.1, 0.08, 0.06]}
-              />
+              <boxGeometry args={[FENCE_SECTION_WIDTH - 0.1, 0.08, 0.06]} />
               <meshStandardMaterial color="#8B6914" />
             </mesh>
           </group>

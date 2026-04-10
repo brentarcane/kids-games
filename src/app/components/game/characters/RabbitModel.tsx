@@ -1,8 +1,8 @@
 "use client";
 
-import { type RefObject, useEffect, useMemo, useRef } from "react";
 import { Html, useAnimations, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import { type RefObject, useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import {
   GROUND_Y,
@@ -85,6 +85,7 @@ function RabbitMeshDebugLabels({ meshes }: { meshes: THREE.Mesh[] }) {
 export function RabbitModel({
   showMeshLabels,
   keysRef,
+  isFlipJump,
 }: {
   showMeshLabels: boolean;
   keysRef: RefObject<{
@@ -94,6 +95,7 @@ export function RabbitModel({
     down: boolean;
     space: boolean;
   }>;
+  isFlipJump: RefObject<boolean>;
 }) {
   const { scene, animations: gltfClips } = useGLTF(RABBIT_MODEL_PATH);
   const groupRef = useRef<THREE.Group>(null);
@@ -103,6 +105,8 @@ export function RabbitModel({
   const squash = useRef(0);
   const walkPhase = useRef(0);
   const walkActionRef = useRef<THREE.AnimationAction | null>(null);
+  const flipProgress = useRef(0);
+  const wasAirborne = useRef(false);
 
   const clonedScene = useMemo(() => scene.clone(true), [scene]);
   const debugMeshes = useMemo(() => collectMeshes(clonedScene), [clonedScene]);
@@ -184,22 +188,37 @@ export function RabbitModel({
     }
 
     if (airborne) {
-      const t = THREE.MathUtils.clamp(
-        (y - GROUND_Y) / HOP_HEIGHT_HINT,
-        0,
-        1,
-      );
+      if (!wasAirborne.current) {
+        flipProgress.current = 0;
+      }
+
+      const t = THREE.MathUtils.clamp((y - GROUND_Y) / HOP_HEIGHT_HINT, 0, 1);
       const stretch = 1 + Math.sin(t * Math.PI) * 0.06;
-      const lean = THREE.MathUtils.clamp(-vy * 0.35, -0.35, 0.45);
-      g.rotation.x = THREE.MathUtils.lerp(g.rotation.x, lean, 0.25);
+
+      if (isFlipJump.current) {
+        // Front flip: advance progress based on delta, complete full 360 in ~airtime
+        flipProgress.current = Math.min(flipProgress.current + delta * 1.4, 1);
+        // Smooth ease-in-out for the rotation
+        const ease = flipProgress.current < 0.5
+          ? 2 * flipProgress.current * flipProgress.current
+          : 1 - (-2 * flipProgress.current + 2) ** 2 / 2;
+        g.rotation.x = -ease * Math.PI * 2;
+      } else {
+        const lean = THREE.MathUtils.clamp(-vy * 0.35, -0.35, 0.45);
+        g.rotation.x = THREE.MathUtils.lerp(g.rotation.x, lean, 0.25);
+      }
       g.scale.set(1, stretch * (1 - squash.current), 1);
     } else {
+      if (wasAirborne.current) {
+        flipProgress.current = 0;
+      }
       g.rotation.x *= 0.82;
       const sy = 1 - squash.current;
       g.scale.x = THREE.MathUtils.lerp(g.scale.x, 1, 0.2);
       g.scale.y = THREE.MathUtils.lerp(g.scale.y, sy, 0.25);
       g.scale.z = THREE.MathUtils.lerp(g.scale.z, 1, 0.2);
     }
+    wasAirborne.current = airborne;
   });
 
   return (

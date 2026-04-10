@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo } from "react";
 import { useTexture } from "@react-three/drei";
+import { useMemo } from "react";
 import * as THREE from "three";
 import {
   GROUND_COLOR_MAP_PATH,

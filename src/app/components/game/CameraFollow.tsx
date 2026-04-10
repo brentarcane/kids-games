@@ -1,8 +1,8 @@
 "use client";
 
+import { useFrame, useThree } from "@react-three/fiber";
 import type { RefObject } from "react";
 import { useMemo } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
 export function CameraFollow({

@@ -1,11 +1,21 @@
 "use client";
 
-import { type RefObject, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Html, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import {
+  type RefObject,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import * as THREE from "three";
 import * as SkeletonUtils from "three/examples/jsm/utils/SkeletonUtils.js";
+import { FishingRodModel } from "../collectibles/FishingRod";
 import {
+  FISHING_ROD_DELIVER_RADIUS,
+  FISHING_ROD_SCALE,
   FROG_MODEL_PATH,
   FROG_SCALE,
   FROG_SPAWN_X,
@@ -21,9 +31,17 @@ import { useProximityVoice } from "../hooks/useProximityVoice";
 export function JeremyFisher({
   rabbitRef,
   paused,
+  rodPickedUp,
+  rodDelivered,
+  onDeliverRod,
+  fishFound,
 }: {
   rabbitRef: RefObject<THREE.Group | null>;
   paused: boolean;
+  rodPickedUp: boolean;
+  rodDelivered: boolean;
+  onDeliverRod: () => void;
+  fishFound: boolean;
 }) {
   const { scene, animations: gltfClips } = useGLTF(FROG_MODEL_PATH);
   const groupRef = useRef<THREE.Group>(null);
@@ -72,11 +90,26 @@ export function JeremyFisher({
     const distSq = dx * dx + dz * dz;
     setShowSpeech(distSq < FROG_SPEECH_RADIUS * FROG_SPEECH_RADIUS);
     updateVoice(delta, distSq);
+
+    // Deliver the rod when Peter is carrying it and close enough
+    if (
+      rodPickedUp &&
+      !rodDelivered &&
+      distSq < FISHING_ROD_DELIVER_RADIUS * FISHING_ROD_DELIVER_RADIUS
+    ) {
+      onDeliverRod();
+    }
   });
 
   return (
     <group ref={groupRef}>
       <primitive object={clonedScene} />
+      {/* Rod on the ground next to Jeremy Fisher after delivery */}
+      {rodDelivered && (
+        <group position={[8, -6, 3]} rotation={[Math.PI / 2, 0, 0.4]}>
+          <FishingRodModel scale={FISHING_ROD_SCALE} />
+        </group>
+      )}
       {showSpeech && (
         <Html
           center
@@ -87,7 +120,13 @@ export function JeremyFisher({
           zIndexRange={[16777271, 0]}
         >
           <div className="whitespace-nowrap rounded-lg bg-white/90 px-3 py-2 text-sm font-semibold text-gray-800 shadow-lg ring-1 ring-gray-300">
-            Oh Peter, I&apos;m so happy to see you.
+            {fishFound
+              ? "Jack Sharp is safe! Thank you, dear Peter!"
+              : rodDelivered
+                ? "Now could you find my friend Jack Sharp? He\u2019s a fish — look near the far edge of the meadow!"
+                : rodPickedUp
+                  ? "Is that my fishing rod? Bring it here!"
+                  : "Peter, I\u2019ve lost my fishing rod. Could you find it?"}
           </div>
         </Html>
       )}

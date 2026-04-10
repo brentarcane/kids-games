@@ -17,9 +17,7 @@ export function Tree({ data }: { data: TreeData }) {
         <sphereGeometry args={[data.leafRadius * 0.7, 8, 8]} />
         <meshStandardMaterial color="#3a9a3a" />
       </mesh>
-      <mesh
-        position={[-0.4, data.trunkHeight + data.leafRadius * 0.4, -0.3]}
-      >
+      <mesh position={[-0.4, data.trunkHeight + data.leafRadius * 0.4, -0.3]}>
         <sphereGeometry args={[data.leafRadius * 0.6, 8, 8]} />
         <meshStandardMaterial color="#228B22" />
       </mesh>

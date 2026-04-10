@@ -9,6 +9,7 @@ export const FROG_MODEL_PATH = "/models/characters/frog.glb";
 export const CHICKEN_MODEL_PATH = "/models/characters/chicken.glb";
 export const POND_MODEL_PATH = "/models/environment/pond.glb";
 export const CARROT_MODEL_PATH = "/models/collectibles/carrot.glb";
+export const FISHING_ROD_MODEL_PATH = "/models/collectibles/fishing_rod.glb";
 
 export const BG_MUSIC_PATH = "/audio/music/bg-music.mp3";
 export const MR_TODD_VOICE_PATH = "/audio/voiceover/mr-todd-1.mp3";
@@ -16,8 +17,7 @@ export const JEREMY_FISHER_VOICE_PATH = "/audio/voiceover/jeremy-fisher.mp3";
 export const QUINN_VOICE_PATH = "/audio/voiceover/quinn-rabbit.mp3";
 export const MERCAT_VOICE_PATH = "/audio/voiceover/abigail-1.mp3";
 
-export const ENVIRONMENT_MAP_PATH =
-  "/images/panoramic-view-field-covered-grass-trees-sunlight-cloudy-sky.jpg";
+export const ENVIRONMENT_MAP_PATH = "/images/bg-3.jpg";
 export const GROUND_COLOR_MAP_PATH =
   "/textures/Poliigon_GrassPatchyGround_4585_BaseColor.jpg";
 export const GROUND_NORMAL_MAP_PATH =
@@ -25,12 +25,12 @@ export const GROUND_NORMAL_MAP_PATH =
 
 // ─── Physics & movement ─────────────────────────────────────────────────────
 
-export const HOP_FORCE = 0.32;
+export const HOP_FORCE = 0.24;
 export const TURN_SPEED = 0.045;
 export const FORWARD_SPEED = 0.18;
-export const GRAVITY = -0.015;
+export const GRAVITY = -0.006;
 export const GROUND_Y = 0.5;
-export const WORLD_RADIUS = 80;
+export const WORLD_RADIUS = 115;
 export const CARROT_COUNT = 15;
 
 /** Approximate max height above GROUND_Y from current hop physics. */
@@ -70,7 +70,7 @@ export const MERCAT_ROAM_SPEED = 0.035;
 export const MERCAT_WAYPOINT_RADIUS = 3;
 export const MERCAT_ROAM_RANGE = 50;
 export const MERCAT_TOUCH_RADIUS = 2.5;
-export const MERCAT_VOICE_RADIUS = 8;
+export const MERCAT_VOICE_RADIUS = 15;
 export const MERCAT_VOICE_COOLDOWN = 10;
 export const MERCAT_SPAWN_X = 15;
 export const MERCAT_SPAWN_Z = 20;
@@ -110,6 +110,39 @@ export const FENCE_SECTION_WIDTH = 1.6;
 // ─── Carrot ─────────────────────────────────────────────────────────────────
 
 export const CARROT_SCALE = 0.033;
+
+// ─── Fishing rod ────────────────────────────────────────────────────────────
+
+export const FISHING_ROD_SCALE = 3;
+export const FISHING_ROD_PICKUP_RADIUS = 2;
+export const FISHING_ROD_DELIVER_RADIUS = 4;
+
+// ─── Jack Sharp (fish) ─────────────────────────────────────────────────────
+
+export const JACK_SHARP_MODEL_PATH = "/models/characters/jack-sharp.glb";
+export const JACK_SHARP_SCALE = 1.5;
+export const JACK_SHARP_SPAWN_X = 80;
+export const JACK_SHARP_SPAWN_Z = -70;
+export const JACK_SHARP_SPEECH_RADIUS = 8;
+export const JACK_SHARP_FIND_RADIUS = 3;
+
+// ─── Unicorn (Ado's Sister) ─────────────────────────────────────────────────
+
+export const UNICORN_MODEL_PATH = "/models/characters/unicorn.glb";
+export const UNICORN_SCALE = 0.6;
+export const UNICORN_SPAWN_X = 70;
+export const UNICORN_SPAWN_Z = 60;
+export const UNICORN_SPEECH_RADIUS = 10;
+export const STAR_COUNT = 5;
+export const STAR_COLLECT_RADIUS = 2;
+
+// ─── Fred (baby dinosaur) ───────────────────────────────────────────────────
+
+export const DINO_MODEL_PATH = "/models/characters/dinosaur.glb";
+export const DINO_SCALE = 0.6;
+export const DINO_SPAWN_X = -40;
+export const DINO_SPAWN_Z = -60;
+export const DINO_SPEECH_RADIUS = 10;
 
 // ─── Procedural walk animation fallback ─────────────────────────────────────
 
