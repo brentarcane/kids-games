@@ -20,7 +20,11 @@ import {
   UNICORN_SPAWN_X,
   UNICORN_SPAWN_Z,
   UNICORN_SPEECH_RADIUS,
+  UNICORN_VOICE_COOLDOWN,
+  UNICORN_VOICE_PATH,
+  UNICORN_VOICE_RADIUS,
 } from "../constants";
+import { useProximityVoice } from "../hooks/useProximityVoice";
 
 const CIRCLE_RADIUS = 6;
 const CIRCLE_SPEED = 0.8;
@@ -41,6 +45,10 @@ export function AdosSister({
   const mixerRef = useRef<THREE.AnimationMixer | null>(null);
   const walkActionRef = useRef<THREE.AnimationAction | null>(null);
   const [showSpeech, setShowSpeech] = useState(false);
+  const updateVoice = useProximityVoice(UNICORN_VOICE_PATH, {
+    radius: UNICORN_VOICE_RADIUS,
+    cooldown: UNICORN_VOICE_COOLDOWN,
+  });
 
   // Circle movement state
   const circleAngle = useRef(0);
@@ -121,6 +129,7 @@ export function AdosSister({
     setShowSpeech(
       distSq < UNICORN_SPEECH_RADIUS * UNICORN_SPEECH_RADIUS,
     );
+    updateVoice(delta, distSq);
   });
 
   const message =

@@ -133,6 +133,9 @@ export const UNICORN_SCALE = 0.6;
 export const UNICORN_SPAWN_X = 70;
 export const UNICORN_SPAWN_Z = 60;
 export const UNICORN_SPEECH_RADIUS = 10;
+export const UNICORN_VOICE_PATH = "/audio/voiceover/ados-sister.mp3";
+export const UNICORN_VOICE_RADIUS = 10;
+export const UNICORN_VOICE_COOLDOWN = 15;
 export const STAR_COUNT = 5;
 export const STAR_COLLECT_RADIUS = 2;
 
