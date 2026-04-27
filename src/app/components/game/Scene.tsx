@@ -14,6 +14,7 @@ import { Mercat } from "./characters/Mercat";
 import { MrMcGregor } from "./characters/MrMcGregor";
 import { MrTodd } from "./characters/MrTodd";
 import { QuinnRabbit } from "./characters/QuinnRabbit";
+import { Spider } from "./characters/Spider";
 // Characters
 import { RabbitModel } from "./characters/RabbitModel";
 // Collectibles
@@ -280,6 +281,7 @@ export function Scene({
 
       <Fred rabbitRef={rabbitGroup} paused={paused} />
       <LilyRabbit rabbitRef={rabbitGroup} paused={paused} />
+      <Spider rabbitRef={rabbitGroup} paused={paused} />
 
       <CameraFollow target={rabbitGroup} />
     </>

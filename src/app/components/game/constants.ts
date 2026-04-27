@@ -159,6 +159,16 @@ export const LILY_FOLLOW_SMOOTHING = 2.5;
 /** Walk animation only plays when Lily is moving faster than this (units/sec). */
 export const LILY_WALK_THRESHOLD = 0.5;
 
+// ─── Spider (friendly birthday spider) ──────────────────────────────────────
+
+export const SPIDER_MODEL_PATH = "/models/characters/spider.glb";
+export const SPIDER_SCALE = 5.0;
+export const SPIDER_SPAWN_X = -80;
+export const SPIDER_SPAWN_Z = -40;
+export const SPIDER_SPEECH_RADIUS = 10;
+export const SPIDER_CIRCLE_RADIUS = 2;
+export const SPIDER_CIRCLE_SPEED = 1.2;
+
 // ─── Procedural walk animation fallback ─────────────────────────────────────
 
 export const PROC_WALK_FREQ = 10;
