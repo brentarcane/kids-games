@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Abigail's Peter Rabbit Game
+
+A 3D browser game built with Next.js, React Three Fiber, and Three.js. Control Peter Rabbit as he hops around a meadow collecting carrots, completing quests, and meeting characters from the world of Beatrix Potter.
+
+## Gameplay
+
+- **Move** Peter Rabbit with arrow keys, **hop** with Space, and **pause** with Escape
+- Every second jump, Peter does a front flip
+- Explore the meadow and interact with characters by approaching them
+
+## Quests
+
+- **Collect Carrots** — Find all 15 carrots scattered across the meadow
+- **Fishing Rod** — Find Jeremy Fisher's lost fishing rod and return it to him at the pond
+- **Find Jack Sharp** — After returning the rod, Jeremy Fisher asks you to find his friend Jack Sharp the fish near the edge of the map
+- **Magic Stars** — Ado's Sister the unicorn asks you to collect 5 golden stars
+
+## Characters
+
+| Character | Description |
+|-----------|-------------|
+| **Peter Rabbit** | The player character — hops, collects, and flips |
+| **Mr. McGregor** | The farmer — if he catches you, it's game over |
+| **Mr. Todd** | A roaming fox with voice lines |
+| **Jeremy Fisher** | A frog by the pond who gives you the fishing rod and Jack Sharp quests |
+| **Jack Sharp** | A fish that appears after returning the fishing rod |
+| **Mercat** | Touch her for a speed boost — she welcomes you to the game |
+| **Quinn Rabbit** | Hints about finding Jeremy Fisher |
+| **Ado's Sister** | A unicorn who runs in circles and gives the star collection quest |
+| **Fred** | A baby dinosaur who hops and sends love hearts when you visit |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to play.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Next.js 16** with App Router
+- **React Three Fiber** / **Three.js** for 3D rendering
+- **Tailwind CSS 4** for UI styling
+- **Old Standard TT** font via `next/font`
+- **Biome** for linting and formatting

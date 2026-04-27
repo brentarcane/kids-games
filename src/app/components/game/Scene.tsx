@@ -9,6 +9,7 @@ import { AdosSister } from "./characters/AdosSister";
 import { Fred } from "./characters/Fred";
 import { JackSharp } from "./characters/JackSharp";
 import { JeremyFisher } from "./characters/JeremyFisher";
+import { LilyRabbit } from "./characters/LilyRabbit";
 import { Mercat } from "./characters/Mercat";
 import { MrMcGregor } from "./characters/MrMcGregor";
 import { MrTodd } from "./characters/MrTodd";
@@ -278,6 +279,7 @@ export function Scene({
       />
 
       <Fred rabbitRef={rabbitGroup} paused={paused} />
+      <LilyRabbit rabbitRef={rabbitGroup} paused={paused} />
 
       <CameraFollow target={rabbitGroup} />
     </>

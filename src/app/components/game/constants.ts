@@ -147,6 +147,18 @@ export const DINO_SPAWN_X = -40;
 export const DINO_SPAWN_Z = -60;
 export const DINO_SPEECH_RADIUS = 10;
 
+// ─── Lily Rabbit (companion) ────────────────────────────────────────────────
+
+export const LILY_MODEL_PATH = "/models/characters/lily-rabbit.glb";
+export const LILY_SCALE = 0.05;
+export const LILY_Y_OFFSET = -0.5;
+/** Distance Lily tries to maintain behind Peter. */
+export const LILY_FOLLOW_DISTANCE = 3.5;
+/** Lily catches up faster as the gap grows; this is the lerp factor at default gap. */
+export const LILY_FOLLOW_SMOOTHING = 2.5;
+/** Walk animation only plays when Lily is moving faster than this (units/sec). */
+export const LILY_WALK_THRESHOLD = 0.5;
+
 // ─── Procedural walk animation fallback ─────────────────────────────────────
 
 export const PROC_WALK_FREQ = 10;
