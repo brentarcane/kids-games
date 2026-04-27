@@ -158,6 +158,16 @@ export const LILY_FOLLOW_DISTANCE = 3.5;
 export const LILY_FOLLOW_SMOOTHING = 2.5;
 /** Walk animation only plays when Lily is moving faster than this (units/sec). */
 export const LILY_WALK_THRESHOLD = 0.5;
+export const LILY_VOICE_PATHS = [
+  "/audio/voiceover/lily-1.mp3",
+  "/audio/voiceover/lily-2.mp3",
+] as const;
+export const LILY_VOICE_LINES = [
+  "A good rabbit never gives up!",
+  "Rabbits are brave!",
+] as const;
+/** Seconds between Lily voice lines. */
+export const LILY_VOICE_INTERVAL = 30;
 
 // ─── Spider (friendly birthday spider) ──────────────────────────────────────
 
