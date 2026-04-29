@@ -1,27 +1,27 @@
 // ─── Asset paths ────────────────────────────────────────────────────────────
 
-export const RABBIT_MODEL_PATH = "/models/characters/peter_rabbit.glb";
-export const FOX_MODEL_PATH = "/models/characters/fox_animation.glb";
-export const FARMER_MODEL_PATH = "/models/characters/lowpolyfarmerman.glb";
-export const MERCAT_MODEL_PATH = "/models/characters/mercat.glb";
-export const QUINN_MODEL_PATH = "/models/characters/quinn_rabbit.glb";
-export const FROG_MODEL_PATH = "/models/characters/frog.glb";
-export const CHICKEN_MODEL_PATH = "/models/characters/chicken.glb";
-export const POND_MODEL_PATH = "/models/environment/pond.glb";
-export const CARROT_MODEL_PATH = "/models/collectibles/carrot.glb";
-export const FISHING_ROD_MODEL_PATH = "/models/collectibles/fishing_rod.glb";
+export const RABBIT_MODEL_PATH = "/games/peter-rabbit/models/characters/peter_rabbit.glb";
+export const FOX_MODEL_PATH = "/games/peter-rabbit/models/characters/fox_animation.glb";
+export const FARMER_MODEL_PATH = "/games/peter-rabbit/models/characters/lowpolyfarmerman.glb";
+export const MERCAT_MODEL_PATH = "/games/peter-rabbit/models/characters/mercat.glb";
+export const QUINN_MODEL_PATH = "/games/peter-rabbit/models/characters/quinn_rabbit.glb";
+export const FROG_MODEL_PATH = "/games/peter-rabbit/models/characters/frog.glb";
+export const CHICKEN_MODEL_PATH = "/games/peter-rabbit/models/characters/chicken.glb";
+export const POND_MODEL_PATH = "/games/peter-rabbit/models/environment/pond.glb";
+export const CARROT_MODEL_PATH = "/games/peter-rabbit/models/collectibles/carrot.glb";
+export const FISHING_ROD_MODEL_PATH = "/games/peter-rabbit/models/collectibles/fishing_rod.glb";
 
-export const BG_MUSIC_PATH = "/audio/music/bg-music.mp3";
-export const MR_TODD_VOICE_PATH = "/audio/voiceover/mr-todd-1.mp3";
-export const JEREMY_FISHER_VOICE_PATH = "/audio/voiceover/jeremy-fisher.mp3";
-export const QUINN_VOICE_PATH = "/audio/voiceover/quinn-rabbit.mp3";
-export const MERCAT_VOICE_PATH = "/audio/voiceover/abigail-1.mp3";
+export const BG_MUSIC_PATH = "/games/peter-rabbit/audio/music/bg-music.mp3";
+export const MR_TODD_VOICE_PATH = "/games/peter-rabbit/audio/voiceover/mr-todd-1.mp3";
+export const JEREMY_FISHER_VOICE_PATH = "/games/peter-rabbit/audio/voiceover/jeremy-fisher.mp3";
+export const QUINN_VOICE_PATH = "/games/peter-rabbit/audio/voiceover/quinn-rabbit.mp3";
+export const MERCAT_VOICE_PATH = "/games/peter-rabbit/audio/voiceover/abigail-1.mp3";
 
-export const ENVIRONMENT_MAP_PATH = "/images/bg-3.jpg";
+export const ENVIRONMENT_MAP_PATH = "/games/peter-rabbit/images/bg-3.jpg";
 export const GROUND_COLOR_MAP_PATH =
-  "/textures/Poliigon_GrassPatchyGround_4585_BaseColor.jpg";
+  "/games/peter-rabbit/textures/Poliigon_GrassPatchyGround_4585_BaseColor.jpg";
 export const GROUND_NORMAL_MAP_PATH =
-  "/textures/Poliigon_GrassPatchyGround_4585_Normal.png";
+  "/games/peter-rabbit/textures/Poliigon_GrassPatchyGround_4585_Normal.png";
 
 // ─── Physics & movement ─────────────────────────────────────────────────────
 
@@ -119,7 +119,7 @@ export const FISHING_ROD_DELIVER_RADIUS = 4;
 
 // ─── Jack Sharp (fish) ─────────────────────────────────────────────────────
 
-export const JACK_SHARP_MODEL_PATH = "/models/characters/jack-sharp.glb";
+export const JACK_SHARP_MODEL_PATH = "/games/peter-rabbit/models/characters/jack-sharp.glb";
 export const JACK_SHARP_SCALE = 1.5;
 export const JACK_SHARP_SPAWN_X = 80;
 export const JACK_SHARP_SPAWN_Z = -70;
@@ -128,12 +128,12 @@ export const JACK_SHARP_FIND_RADIUS = 3;
 
 // ─── Unicorn (Ado's Sister) ─────────────────────────────────────────────────
 
-export const UNICORN_MODEL_PATH = "/models/characters/unicorn.glb";
+export const UNICORN_MODEL_PATH = "/games/peter-rabbit/models/characters/unicorn.glb";
 export const UNICORN_SCALE = 0.6;
 export const UNICORN_SPAWN_X = 70;
 export const UNICORN_SPAWN_Z = 60;
 export const UNICORN_SPEECH_RADIUS = 10;
-export const UNICORN_VOICE_PATH = "/audio/voiceover/ados-sister.mp3";
+export const UNICORN_VOICE_PATH = "/games/peter-rabbit/audio/voiceover/ados-sister.mp3";
 export const UNICORN_VOICE_RADIUS = 10;
 export const UNICORN_VOICE_COOLDOWN = 15;
 export const STAR_COUNT = 5;
@@ -141,7 +141,7 @@ export const STAR_COLLECT_RADIUS = 2;
 
 // ─── Fred (baby dinosaur) ───────────────────────────────────────────────────
 
-export const DINO_MODEL_PATH = "/models/characters/dinosaur.glb";
+export const DINO_MODEL_PATH = "/games/peter-rabbit/models/characters/dinosaur.glb";
 export const DINO_SCALE = 0.6;
 export const DINO_SPAWN_X = -40;
 export const DINO_SPAWN_Z = -60;
@@ -149,7 +149,7 @@ export const DINO_SPEECH_RADIUS = 10;
 
 // ─── Lily Rabbit (companion) ────────────────────────────────────────────────
 
-export const LILY_MODEL_PATH = "/models/characters/lily-rabbit.glb";
+export const LILY_MODEL_PATH = "/games/peter-rabbit/models/characters/lily-rabbit.glb";
 export const LILY_SCALE = 0.05;
 export const LILY_Y_OFFSET = -0.5;
 /** Distance Lily tries to maintain behind Peter. */
@@ -159,8 +159,8 @@ export const LILY_FOLLOW_SMOOTHING = 2.5;
 /** Walk animation only plays when Lily is moving faster than this (units/sec). */
 export const LILY_WALK_THRESHOLD = 0.5;
 export const LILY_VOICE_PATHS = [
-  "/audio/voiceover/lily-1.mp3",
-  "/audio/voiceover/lily-2.mp3",
+  "/games/peter-rabbit/audio/voiceover/lily-1.mp3",
+  "/games/peter-rabbit/audio/voiceover/lily-2.mp3",
 ] as const;
 export const LILY_VOICE_LINES = [
   "A good rabbit never gives up!",
@@ -171,8 +171,8 @@ export const LILY_VOICE_INTERVAL = 30;
 
 // ─── Spider (friendly birthday spider) ──────────────────────────────────────
 
-export const SPIDER_MODEL_PATH = "/models/characters/spider.glb";
-export const SPIDER_SCALE = 5.0;
+export const SPIDER_MODEL_PATH = "/games/peter-rabbit/models/characters/spider.glb";
+export const SPIDER_SCALE = 20.0;
 export const SPIDER_SPAWN_X = -80;
 export const SPIDER_SPAWN_Z = -40;
 export const SPIDER_SPEECH_RADIUS = 10;

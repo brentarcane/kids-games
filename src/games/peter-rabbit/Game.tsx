@@ -2,13 +2,13 @@
 
 import { Canvas } from "@react-three/fiber";
 import { useCallback, useEffect, useState } from "react";
-import { BG_MUSIC_PATH, CARROT_COUNT } from "./game/constants";
-import { Scene } from "./game/Scene";
-import type { Carrot, Star } from "./game/types";
-import { GameOverOverlay } from "./game/ui/GameOverOverlay";
-import { HUD } from "./game/ui/HUD";
-import { PauseOverlay } from "./game/ui/PauseOverlay";
-import { WORLD } from "./game/world-gen";
+import { BG_MUSIC_PATH, CARROT_COUNT } from "./constants";
+import { Scene } from "./Scene";
+import type { Carrot, Star } from "./types";
+import { GameOverOverlay } from "./ui/GameOverOverlay";
+import { HUD } from "./ui/HUD";
+import { PauseOverlay } from "./ui/PauseOverlay";
+import { WORLD } from "./world-gen";
 
 export default function Game() {
   const [carrots, setCarrots] = useState<Carrot[]>(() =>
