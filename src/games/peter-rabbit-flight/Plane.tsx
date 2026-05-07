@@ -88,7 +88,11 @@ export function Plane() {
 
   return (
     <group>
-      <group ref={planeRef} rotation={[0, PLANE_MODEL_YAW, 0]} scale={PLANE_SCALE}>
+      <group
+        ref={planeRef}
+        rotation={[0, PLANE_MODEL_YAW, 0]}
+        scale={PLANE_SCALE}
+      >
         <primitive object={planeClone} />
       </group>
       {/* Pilot starts as a sibling of the plane group so its transform is in

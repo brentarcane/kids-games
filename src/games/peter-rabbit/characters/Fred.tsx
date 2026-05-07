@@ -72,7 +72,8 @@ function FloatingHearts({ active }: { active: boolean }) {
         {hearts.map((h) => {
           const progress = h.age / HEART_LIFETIME;
           const y = progress * 50;
-          const opacity = progress < 0.3 ? progress / 0.3 : 1 - (progress - 0.3) / 0.7;
+          const opacity =
+            progress < 0.3 ? progress / 0.3 : 1 - (progress - 0.3) / 0.7;
           return (
             <span
               key={h.id}

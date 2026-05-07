@@ -199,9 +199,10 @@ export function RabbitModel({
         // Front flip: advance progress based on delta, complete full 360 in ~airtime
         flipProgress.current = Math.min(flipProgress.current + delta * 1.4, 1);
         // Smooth ease-in-out for the rotation
-        const ease = flipProgress.current < 0.5
-          ? 2 * flipProgress.current * flipProgress.current
-          : 1 - (-2 * flipProgress.current + 2) ** 2 / 2;
+        const ease =
+          flipProgress.current < 0.5
+            ? 2 * flipProgress.current * flipProgress.current
+            : 1 - (-2 * flipProgress.current + 2) ** 2 / 2;
         g.rotation.x = -ease * Math.PI * 2;
       } else {
         const lean = THREE.MathUtils.clamp(-vy * 0.35, -0.35, 0.45);

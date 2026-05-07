@@ -129,7 +129,8 @@ export function Scene({
 
     // Visual bank roll on the inner group (doesn't affect movement direction)
     const targetRoll = turn * ROLL_VISUAL_MAX;
-    visualRoll.current += (targetRoll - visualRoll.current) * Math.min(1, delta * ROLL_LERP);
+    visualRoll.current +=
+      (targetRoll - visualRoll.current) * Math.min(1, delta * ROLL_LERP);
     visual.rotation.z = visualRoll.current;
 
     // Forward velocity in world space
@@ -149,7 +150,10 @@ export function Scene({
       const dx = plane.position.x - activeRing.x;
       const dy = plane.position.y - activeRing.y;
       const dz = plane.position.z - activeRing.z;
-      if (dx * dx + dy * dy + dz * dz < RING_DETECT_RADIUS * RING_DETECT_RADIUS) {
+      if (
+        dx * dx + dy * dy + dz * dz <
+        RING_DETECT_RADIUS * RING_DETECT_RADIUS
+      ) {
         onPassRing(activeRing.id);
       }
     }

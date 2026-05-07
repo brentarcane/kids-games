@@ -25,9 +25,7 @@ export function HUD({
         <div className="text-sm text-sky-100">
           Rings: {passed}/{total}
         </div>
-        <div className="text-sm text-sky-100">
-          Time: {elapsed.toFixed(1)}s
-        </div>
+        <div className="text-sm text-sky-100">Time: {elapsed.toFixed(1)}s</div>
         {boostActive && (
           <div className="text-sm text-yellow-300 font-bold animate-pulse">
             BOOST!

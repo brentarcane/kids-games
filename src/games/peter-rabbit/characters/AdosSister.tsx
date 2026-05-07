@@ -60,11 +60,7 @@ export function AdosSister({
   useLayoutEffect(() => {
     const g = groupRef.current;
     if (!g) return;
-    g.position.set(
-      UNICORN_SPAWN_X + CIRCLE_RADIUS,
-      GROUND_Y,
-      UNICORN_SPAWN_Z,
-    );
+    g.position.set(UNICORN_SPAWN_X + CIRCLE_RADIUS, GROUND_Y, UNICORN_SPAWN_Z);
     g.scale.setScalar(UNICORN_SCALE);
   }, []);
 
@@ -110,8 +106,10 @@ export function AdosSister({
     // Move in circle when running
     if (isRunning.current) {
       circleAngle.current += CIRCLE_SPEED * delta;
-      const cx = UNICORN_SPAWN_X + Math.cos(circleAngle.current) * CIRCLE_RADIUS;
-      const cz = UNICORN_SPAWN_Z + Math.sin(circleAngle.current) * CIRCLE_RADIUS;
+      const cx =
+        UNICORN_SPAWN_X + Math.cos(circleAngle.current) * CIRCLE_RADIUS;
+      const cz =
+        UNICORN_SPAWN_Z + Math.sin(circleAngle.current) * CIRCLE_RADIUS;
       uni.position.x = cx;
       uni.position.z = cz;
 
@@ -126,9 +124,7 @@ export function AdosSister({
     const dx = rabbit.position.x - uni.position.x;
     const dz = rabbit.position.z - uni.position.z;
     const distSq = dx * dx + dz * dz;
-    setShowSpeech(
-      distSq < UNICORN_SPEECH_RADIUS * UNICORN_SPEECH_RADIUS,
-    );
+    setShowSpeech(distSq < UNICORN_SPEECH_RADIUS * UNICORN_SPEECH_RADIUS);
     updateVoice(delta, distSq);
   });
 

@@ -14,6 +14,7 @@ import { Mercat } from "./characters/Mercat";
 import { MrMcGregor } from "./characters/MrMcGregor";
 import { MrTodd } from "./characters/MrTodd";
 import { QuinnRabbit } from "./characters/QuinnRabbit";
+import { SammyWhiskers } from "./characters/SammyWhiskers";
 import { Spider } from "./characters/Spider";
 // Characters
 import { RabbitModel } from "./characters/RabbitModel";
@@ -227,7 +228,11 @@ export function Scene({
       ))}
 
       <group ref={rabbitGroup} position={[0, GROUND_Y, 0]}>
-        <RabbitModel showMeshLabels={showMeshLabels} keysRef={keysRef} isFlipJump={isFlipJump} />
+        <RabbitModel
+          showMeshLabels={showMeshLabels}
+          keysRef={keysRef}
+          isFlipJump={isFlipJump}
+        />
         {/* Fishing rod attached to Peter while carrying */}
         {rodPickedUp && !rodDelivered && (
           <group position={[0.6, 1.2, -0.3]} rotation={[0.3, 0, -0.2]}>
@@ -282,6 +287,7 @@ export function Scene({
       <Fred rabbitRef={rabbitGroup} paused={paused} />
       <LilyRabbit rabbitRef={rabbitGroup} paused={paused} />
       <Spider rabbitRef={rabbitGroup} paused={paused} />
+      <SammyWhiskers rabbitRef={rabbitGroup} paused={paused} />
 
       <CameraFollow target={rabbitGroup} />
     </>

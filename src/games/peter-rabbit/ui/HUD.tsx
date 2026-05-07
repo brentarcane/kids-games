@@ -52,7 +52,9 @@ export function HUD({
           </span>
           <span>
             {rodDelivered ? (
-              <span className="text-green-300">Rod returned to Jeremy Fisher</span>
+              <span className="text-green-300">
+                Rod returned to Jeremy Fisher
+              </span>
             ) : rodPickedUp ? (
               <span className="text-cyan-300">Bring rod to Jeremy Fisher</span>
             ) : (
@@ -64,9 +66,7 @@ export function HUD({
         {/* Jack Sharp — only visible after rod is delivered */}
         {rodDelivered && (
           <div className="flex items-center gap-2 text-sm text-amber-100">
-            <span className="text-base">
-              {fishFound ? "\u2714" : "\u00b7"}
-            </span>
+            <span className="text-base">{fishFound ? "\u2714" : "\u00b7"}</span>
             <span>
               {fishFound ? (
                 <span className="text-green-300">Found Jack Sharp!</span>

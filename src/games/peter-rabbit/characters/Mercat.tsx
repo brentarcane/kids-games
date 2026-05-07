@@ -2,7 +2,13 @@
 
 import { Html, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { type RefObject, useLayoutEffect, useMemo, useRef, useState } from "react";
+import {
+  type RefObject,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import * as THREE from "three";
 import {
   GROUND_Y,
@@ -23,8 +29,10 @@ import { useAnimatedModel } from "../hooks/useAnimatedModel";
 import { useProximityVoice } from "../hooks/useProximityVoice";
 
 function MercatModel({ paused }: { paused: boolean }) {
-  const { clonedScene, animRootRef, walkActionRef } =
-    useAnimatedModel(MERCAT_MODEL_PATH, { clone: "skeleton" });
+  const { clonedScene, animRootRef, walkActionRef } = useAnimatedModel(
+    MERCAT_MODEL_PATH,
+    { clone: "skeleton" },
+  );
 
   useFrame(() => {
     const walkAction = walkActionRef.current;

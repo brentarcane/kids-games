@@ -30,8 +30,14 @@ export function SkyWall() {
 
   return (
     <mesh position={[0, WALL_HEIGHT / 2 - 1, 0]}>
-      <cylinderGeometry args={[WORLD_RADIUS, WORLD_RADIUS, WALL_HEIGHT, 64, 1, true]} />
-      <meshBasicMaterial map={texture} side={THREE.BackSide} toneMapped={false} />
+      <cylinderGeometry
+        args={[WORLD_RADIUS, WORLD_RADIUS, WALL_HEIGHT, 64, 1, true]}
+      />
+      <meshBasicMaterial
+        map={texture}
+        side={THREE.BackSide}
+        toneMapped={false}
+      />
     </mesh>
   );
 }

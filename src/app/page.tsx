@@ -13,6 +13,12 @@ const games = [
     description:
       "Pilot a plane through a sequential ring course. Pitch, turn, and boost to a fast time.",
   },
+  {
+    href: "/bluey",
+    title: "Bluey!",
+    description:
+      "A 2.5D side-scroller. Run, jump, and double-jump-flip your way across the platforms to the finish flag.",
+  },
 ];
 
 export default function Home() {

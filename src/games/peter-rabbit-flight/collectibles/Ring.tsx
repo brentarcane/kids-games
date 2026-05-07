@@ -12,13 +12,7 @@ import {
 } from "../constants";
 import type { Ring as RingType } from "../types";
 
-export function Ring({
-  ring,
-  active,
-}: {
-  ring: RingType;
-  active: boolean;
-}) {
+export function Ring({ ring, active }: { ring: RingType; active: boolean }) {
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((_, delta) => {

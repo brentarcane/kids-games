@@ -101,9 +101,7 @@ export default function Game() {
         boostActive={boostActive}
       />
       {won && <WinOverlay elapsed={elapsedRef.current} onRestart={restart} />}
-      {paused && !won && (
-        <PauseOverlay onResume={() => setPaused(false)} />
-      )}
+      {paused && !won && <PauseOverlay onResume={() => setPaused(false)} />}
     </div>
   );
 }

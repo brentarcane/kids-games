@@ -150,7 +150,8 @@ export function LilyRabbit({
     // Compute movement speed for walk animation gating
     const moveDx = newX - lastPos.current.x;
     const moveDz = newZ - lastPos.current.y;
-    const speed = Math.sqrt(moveDx * moveDx + moveDz * moveDz) / Math.max(delta, 0.0001);
+    const speed =
+      Math.sqrt(moveDx * moveDx + moveDz * moveDz) / Math.max(delta, 0.0001);
 
     lily.position.x = newX;
     lily.position.z = newZ;
