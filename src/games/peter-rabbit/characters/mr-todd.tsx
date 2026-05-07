@@ -18,9 +18,9 @@ import {
   FOX_WAYPOINT_RADIUS,
   MR_TODD_VOICE_PATH,
 } from "../constants";
-import { useAnimatedModel } from "../hooks/useAnimatedModel";
-import { useProximityVoice } from "../hooks/useProximityVoice";
-import { useRoamingNPC } from "../hooks/useRoamingNPC";
+import { useAnimatedModel } from "../hooks/use-animated-model";
+import { useProximityVoice } from "../hooks/use-proximity-voice";
+import { useRoamingNPC } from "../hooks/use-roaming-npc";
 
 function FoxModel({ paused }: { paused: boolean }) {
   const { clonedScene, animRootRef, walkActionRef } = useAnimatedModel(

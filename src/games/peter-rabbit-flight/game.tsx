@@ -4,11 +4,11 @@ import { Canvas } from "@react-three/fiber";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Color, Fog } from "three";
 import { FOG_FAR, FOG_NEAR, RING_COUNT, SKY_COLOR } from "./constants";
-import { Scene } from "./Scene";
+import { Scene } from "./scene";
 import type { Ring as RingType } from "./types";
-import { HUD } from "./ui/HUD";
-import { PauseOverlay } from "./ui/PauseOverlay";
-import { WinOverlay } from "./ui/WinOverlay";
+import { HUD } from "./ui/hud";
+import { PauseOverlay } from "./ui/pause-overlay";
+import { WinOverlay } from "./ui/win-overlay";
 import { COURSE } from "./world-gen";
 
 export default function Game() {

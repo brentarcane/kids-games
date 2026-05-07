@@ -3,8 +3,8 @@
 import { useFrame } from "@react-three/fiber";
 import { type RefObject, useEffect, useRef } from "react";
 import * as THREE from "three";
-import { CameraFollow } from "./CameraFollow";
-import { Ring } from "./collectibles/Ring";
+import { CameraFollow } from "./camera-follow";
+import { Ring } from "./collectibles/ring";
 import {
   PITCH_LIMIT,
   PITCH_RATE,
@@ -16,9 +16,9 @@ import {
   ROLL_VISUAL_MAX,
   YAW_RATE,
 } from "./constants";
-import { Clouds } from "./environment/Clouds";
-import { Ground } from "./environment/Ground";
-import { Plane } from "./Plane";
+import { Clouds } from "./environment/clouds";
+import { Ground } from "./environment/ground";
+import { Plane } from "./plane";
 import type { Ring as RingType } from "./types";
 
 type Keys = {

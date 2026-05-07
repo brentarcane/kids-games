@@ -3,8 +3,8 @@
 import { useFrame } from "@react-three/fiber";
 import { type RefObject, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { Bluey } from "./Bluey";
-import { CameraFollow } from "./CameraFollow";
+import { Bluey } from "./bluey";
+import { CameraFollow } from "./camera-follow";
 import {
   AIR_CONTROL,
   BLUEY_FAMILY_MODEL_PATH,
@@ -23,9 +23,9 @@ import {
   SPAWN_X,
   SPAWN_Y,
 } from "./constants";
-import { Background } from "./environment/Background";
-import { Finish } from "./environment/Finish";
-import { Platform } from "./environment/Platform";
+import { Background } from "./environment/background";
+import { Finish } from "./environment/finish";
+import { Platform } from "./environment/platform";
 import type { Facing, LevelLayout } from "./types";
 
 type Keys = { left: boolean; right: boolean; space: boolean };

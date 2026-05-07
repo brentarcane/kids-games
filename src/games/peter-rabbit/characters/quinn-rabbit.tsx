@@ -22,7 +22,7 @@ import {
   QUINN_VOICE_PATH,
   QUINN_VOICE_RADIUS,
 } from "../constants";
-import { useProximityVoice } from "../hooks/useProximityVoice";
+import { useProximityVoice } from "../hooks/use-proximity-voice";
 
 export function QuinnRabbit({
   rabbitRef,

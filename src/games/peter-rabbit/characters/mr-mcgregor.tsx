@@ -15,7 +15,7 @@ import {
   FARMER_WAYPOINT_RADIUS,
   GROUND_Y,
 } from "../constants";
-import { useAnimatedModel } from "../hooks/useAnimatedModel";
+import { useAnimatedModel } from "../hooks/use-animated-model";
 
 function FarmerModel({ paused }: { paused: boolean }) {
   const { clonedScene, animRootRef, walkActionRef } =

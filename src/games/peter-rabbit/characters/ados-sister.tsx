@@ -24,7 +24,7 @@ import {
   UNICORN_VOICE_PATH,
   UNICORN_VOICE_RADIUS,
 } from "../constants";
-import { useProximityVoice } from "../hooks/useProximityVoice";
+import { useProximityVoice } from "../hooks/use-proximity-voice";
 
 const CIRCLE_RADIUS = 6;
 const CIRCLE_SPEED = 0.8;

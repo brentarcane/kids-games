@@ -4,24 +4,24 @@ import { Environment } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useCallback, useEffect, useRef } from "react";
 import type * as THREE from "three";
-import { CameraFollow } from "./CameraFollow";
-import { AdosSister } from "./characters/AdosSister";
-import { Fred } from "./characters/Fred";
-import { JackSharp } from "./characters/JackSharp";
-import { JeremyFisher } from "./characters/JeremyFisher";
-import { LilyRabbit } from "./characters/LilyRabbit";
-import { Mercat } from "./characters/Mercat";
-import { MrMcGregor } from "./characters/MrMcGregor";
-import { MrTodd } from "./characters/MrTodd";
-import { QuinnRabbit } from "./characters/QuinnRabbit";
-import { SammyWhiskers } from "./characters/SammyWhiskers";
-import { Spider } from "./characters/Spider";
+import { CameraFollow } from "./camera-follow";
+import { AdosSister } from "./characters/ados-sister";
+import { Fred } from "./characters/fred";
+import { JackSharp } from "./characters/jack-sharp";
+import { JeremyFisher } from "./characters/jeremy-fisher";
+import { LilyRabbit } from "./characters/lily-rabbit";
+import { Mercat } from "./characters/mercat";
+import { MrMcGregor } from "./characters/mr-mcgregor";
+import { MrTodd } from "./characters/mr-todd";
+import { QuinnRabbit } from "./characters/quinn-rabbit";
 // Characters
-import { RabbitModel } from "./characters/RabbitModel";
+import { RabbitModel } from "./characters/rabbit-model";
+import { SammyWhiskers } from "./characters/sammy-whiskers";
+import { Spider } from "./characters/spider";
 // Collectibles
-import { CarrotItem } from "./collectibles/CarrotItem";
-import { StarItem } from "./collectibles/StarItem";
-import { FishingRod, FishingRodModel } from "./collectibles/FishingRod";
+import { CarrotItem } from "./collectibles/carrot-item";
+import { FishingRod, FishingRodModel } from "./collectibles/fishing-rod";
+import { StarItem } from "./collectibles/star-item";
 import {
   ENVIRONMENT_MAP_PATH,
   FISHING_ROD_PICKUP_RADIUS,
@@ -36,15 +36,15 @@ import {
   TURN_SPEED,
   WORLD_RADIUS,
 } from "./constants";
-import { ChickenGarden } from "./environment/ChickenGarden";
-import { Flower } from "./environment/Flower";
+import { ChickenGarden } from "./environment/chicken-garden";
+import { Flower } from "./environment/flower";
 // Environment
-import { Ground } from "./environment/Ground";
-import { Path } from "./environment/Path";
-import { Pond } from "./environment/Pond";
-import { Rock } from "./environment/Rock";
-import { SkyWall } from "./environment/SkyWall";
-import { Tree } from "./environment/Tree";
+import { Ground } from "./environment/ground";
+import { Path } from "./environment/path";
+import { Pond } from "./environment/pond";
+import { Rock } from "./environment/rock";
+import { SkyWall } from "./environment/sky-wall";
+import { Tree } from "./environment/tree";
 import type { Carrot } from "./types";
 import { WORLD } from "./world-gen";
 

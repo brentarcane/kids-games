@@ -3,11 +3,11 @@
 import { Canvas } from "@react-three/fiber";
 import { useCallback, useEffect, useState } from "react";
 import { BG_MUSIC_PATH, CARROT_COUNT } from "./constants";
-import { Scene } from "./Scene";
+import { Scene } from "./scene";
 import type { Carrot, Star } from "./types";
-import { GameOverOverlay } from "./ui/GameOverOverlay";
-import { HUD } from "./ui/HUD";
-import { PauseOverlay } from "./ui/PauseOverlay";
+import { GameOverOverlay } from "./ui/game-over-overlay";
+import { HUD } from "./ui/hud";
+import { PauseOverlay } from "./ui/pause-overlay";
 import { WORLD } from "./world-gen";
 
 export default function Game() {
