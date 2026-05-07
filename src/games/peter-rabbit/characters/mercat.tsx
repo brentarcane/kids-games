@@ -10,6 +10,8 @@ import {
   useState,
 } from "react";
 import * as THREE from "three";
+import { useAnimatedModel } from "@/hooks/use-animated-model";
+import { useProximityVoice } from "@/hooks/use-proximity-voice";
 import {
   GROUND_Y,
   MERCAT_MODEL_PATH,
@@ -25,8 +27,6 @@ import {
   MERCAT_WAYPOINT_RADIUS,
   SPEED_BOOST_DURATION,
 } from "../constants";
-import { useAnimatedModel } from "../hooks/use-animated-model";
-import { useProximityVoice } from "../hooks/use-proximity-voice";
 
 function MercatModel({ paused }: { paused: boolean }) {
   const { clonedScene, animRootRef, walkActionRef } = useAnimatedModel(

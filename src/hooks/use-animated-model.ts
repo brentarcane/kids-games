@@ -3,14 +3,17 @@ import { useFrame } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import * as SkeletonUtils from "three/examples/jsm/utils/SkeletonUtils.js";
-import {
-  PROC_WALK_BOB_Y,
-  PROC_WALK_FREQ,
-  PROC_WALK_PITCH,
-  PROC_WALK_ROLL,
-} from "../constants";
 
 type CloneMethod = "basic" | "skeleton";
+
+type ProcWalk = { freq: number; roll: number; pitch: number; bobY: number };
+
+const DEFAULT_PROC_WALK: ProcWalk = {
+  freq: 10,
+  roll: 0.07,
+  pitch: 0.05,
+  bobY: 0.04,
+};
 
 /**
  * Loads a GLB model, clones it, auto-plays a walk/idle animation clip,
@@ -21,8 +24,9 @@ type CloneMethod = "basic" | "skeleton";
  */
 export function useAnimatedModel(
   modelPath: string,
-  opts: { clone?: CloneMethod } = {},
+  opts: { clone?: CloneMethod; procWalk?: Partial<ProcWalk> } = {},
 ) {
+  const procWalk = { ...DEFAULT_PROC_WALK, ...opts.procWalk };
   const { scene, animations: gltfClips } = useGLTF(modelPath);
   const animRootRef = useRef<THREE.Group>(null);
   const walkActionRef = useRef<THREE.AnimationAction | null>(null);
@@ -60,11 +64,11 @@ export function useAnimatedModel(
   useFrame((_, delta) => {
     const root = animRootRef.current;
     if (!root || hasGltfClips) return;
-    walkPhase.current += delta * PROC_WALK_FREQ;
+    walkPhase.current += delta * procWalk.freq;
     const ph = walkPhase.current;
-    root.rotation.z = Math.sin(ph) * PROC_WALK_ROLL;
-    root.rotation.x = Math.sin(ph * 2) * PROC_WALK_PITCH;
-    root.position.y = Math.abs(Math.sin(ph * 2)) * PROC_WALK_BOB_Y;
+    root.rotation.z = Math.sin(ph) * procWalk.roll;
+    root.rotation.x = Math.sin(ph * 2) * procWalk.pitch;
+    root.position.y = Math.abs(Math.sin(ph * 2)) * procWalk.bobY;
   });
 
   return { clonedScene, animRootRef, walkActionRef, hasGltfClips };

@@ -2,9 +2,11 @@
 
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { type RefObject, useMemo } from "react";
+import type { RefObject } from "react";
 import type * as THREE from "three";
-import * as SkeletonUtils from "three/examples/jsm/utils/SkeletonUtils.js";
+import { useAnimatedModel } from "@/hooks/use-animated-model";
+import { useProximityVoice } from "@/hooks/use-proximity-voice";
+import { useRoamingNPC } from "@/hooks/use-roaming-npc";
 import {
   FOX_MODEL_PATH,
   FOX_MODEL_YAW,
@@ -18,9 +20,6 @@ import {
   FOX_WAYPOINT_RADIUS,
   MR_TODD_VOICE_PATH,
 } from "../constants";
-import { useAnimatedModel } from "../hooks/use-animated-model";
-import { useProximityVoice } from "../hooks/use-proximity-voice";
-import { useRoamingNPC } from "../hooks/use-roaming-npc";
 
 function FoxModel({ paused }: { paused: boolean }) {
   const { clonedScene, animRootRef, walkActionRef } = useAnimatedModel(

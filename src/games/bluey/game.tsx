@@ -3,11 +3,11 @@
 import { Canvas } from "@react-three/fiber";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Color, Fog } from "three";
+import { MessageOverlay } from "@/components/message-overlay";
+import { PauseOverlay } from "@/components/pause-overlay";
 import { FOG_FAR, FOG_NEAR, SKY_COLOR } from "./constants";
 import { Scene } from "./scene";
 import { HUD } from "./ui/hud";
-import { PauseOverlay } from "./ui/pause-overlay";
-import { WinOverlay } from "./ui/win-overlay";
 import { LEVEL } from "./world-gen";
 
 export default function Game() {
@@ -66,7 +66,16 @@ export default function Game() {
 
       <HUD falls={displayFalls} />
 
-      {won && <WinOverlay falls={fallsRef.current} onRestart={restart} />}
+      {won && (
+        <MessageOverlay
+          title="You made it!"
+          italic
+          body={`Falls: ${fallsRef.current}`}
+          actionLabel="Play Again"
+          onAction={restart}
+          accent="sky"
+        />
+      )}
       {paused && !won && <PauseOverlay onResume={() => setPaused(false)} />}
     </div>
   );

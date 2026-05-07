@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import * as THREE from "three";
+import { assetPath } from "@/lib/asset-path";
 import { WORLD_RADIUS } from "../constants";
 
 const WALL_HEIGHT = 60;
-const BG_PATH = "/games/peter-rabbit/images/bg-3.jpg";
+const BG_PATH = assetPath("peter-rabbit", "images/bg-3.jpg");
 
 export function SkyWall() {
   const [texture, setTexture] = useState<THREE.Texture | null>(null);

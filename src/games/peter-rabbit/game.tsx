@@ -2,12 +2,12 @@
 
 import { Canvas } from "@react-three/fiber";
 import { useCallback, useEffect, useState } from "react";
+import { MessageOverlay } from "@/components/message-overlay";
+import { PauseOverlay } from "@/components/pause-overlay";
 import { BG_MUSIC_PATH, CARROT_COUNT } from "./constants";
 import { Scene } from "./scene";
 import type { Carrot, Star } from "./types";
-import { GameOverOverlay } from "./ui/game-over-overlay";
 import { HUD } from "./ui/hud";
-import { PauseOverlay } from "./ui/pause-overlay";
 import { WORLD } from "./world-gen";
 
 export default function Game() {
@@ -119,9 +119,24 @@ export default function Game() {
         fishFound={fishFound}
         starsCollected={starsCollected}
       />
-      {gameOver && <GameOverOverlay onRestart={restart} />}
+      {gameOver && (
+        <MessageOverlay
+          title="Caught by Mr. McGregor!"
+          titleClassName="text-red-800"
+          body="Peter should have stayed out of the garden..."
+          actionLabel="Try Again"
+          onAction={restart}
+          accent="amber"
+          buttonClassName="bg-green-600 hover:bg-green-700"
+        />
+      )}
       {paused && !gameOver && (
-        <PauseOverlay onResume={() => setPaused(false)} />
+        <PauseOverlay
+          onResume={() => setPaused(false)}
+          accent="amber"
+          body="Peter is taking a little rest..."
+          buttonClassName="bg-green-600 hover:bg-green-700"
+        />
       )}
     </div>
   );

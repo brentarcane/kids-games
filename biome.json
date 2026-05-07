@@ -23,6 +23,14 @@
       },
       "a11y": {
         "useAltText": "off"
+      },
+      "style": {
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "filenameCases": ["kebab-case"]
+          }
+        }
       }
     },
     "domains": {

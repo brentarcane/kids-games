@@ -1,25 +1,5 @@
 import Link from "next/link";
-
-const games = [
-  {
-    href: "/peter-rabbit",
-    title: "Abigail's Peter Rabbit Game",
-    description:
-      "Hop around the meadow, collect carrots, and meet Beatrix Potter's characters in 3D.",
-  },
-  {
-    href: "/peter-rabbit-flight",
-    title: "Peter Rabbit Flight Simulator",
-    description:
-      "Pilot a plane through a sequential ring course. Pitch, turn, and boost to a fast time.",
-  },
-  {
-    href: "/bluey",
-    title: "Bluey!",
-    description:
-      "A 2.5D side-scroller. Run, jump, and double-jump-flip your way across the platforms to the finish flag.",
-  },
-];
+import { GAMES } from "@/games/registry";
 
 export default function Home() {
   return (
@@ -31,10 +11,10 @@ export default function Home() {
         <p className="text-amber-800 mb-10">Pick a game to play.</p>
 
         <div className="grid gap-6 sm:grid-cols-2">
-          {games.map((g) => (
+          {GAMES.map((g) => (
             <Link
-              key={g.href}
-              href={g.href}
+              key={g.slug}
+              href={`/${g.slug}`}
               className="block rounded-2xl bg-white/80 p-6 shadow-md ring-1 ring-amber-200 transition hover:bg-white hover:shadow-lg hover:ring-amber-400"
             >
               <h2 className="text-2xl font-bold text-amber-900 mb-2">

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "biome check",
+    "lint": "biome check && node scripts/check-game-structure.mjs",
+    "lint:games": "node scripts/check-game-structure.mjs",
     "format": "biome format --write"
   },
   "dependencies": {

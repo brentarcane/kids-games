@@ -12,6 +12,7 @@ import {
 } from "react";
 import * as THREE from "three";
 import * as SkeletonUtils from "three/examples/jsm/utils/SkeletonUtils.js";
+import { useProximityVoice } from "@/hooks/use-proximity-voice";
 import {
   GROUND_Y,
   STAR_COUNT,
@@ -24,7 +25,6 @@ import {
   UNICORN_VOICE_PATH,
   UNICORN_VOICE_RADIUS,
 } from "../constants";
-import { useProximityVoice } from "../hooks/use-proximity-voice";
 
 const CIRCLE_RADIUS = 6;
 const CIRCLE_SPEED = 0.8;

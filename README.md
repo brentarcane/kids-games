@@ -1,44 +1,56 @@
-# Abigail's Peter Rabbit Game
+# Kids' Games
 
-A 3D browser game built with Next.js, React Three Fiber, and Three.js. Control Peter Rabbit as he hops around a meadow collecting carrots, completing quests, and meeting characters from the world of Beatrix Potter.
+A catalogue of small browser games built with and for our kids, sharing one
+Next.js + React Three Fiber shell. Pick a game from the homepage and play.
 
-## Gameplay
+## Games
 
-- **Move** Peter Rabbit with arrow keys, **hop** with Space, and **pause** with Escape
+### Abigail's Peter Rabbit Game
+
+Hop around a 3D meadow as Peter Rabbit, collect carrots, and meet characters
+from the world of Beatrix Potter.
+
+- **Move** with arrow keys, **hop** with Space, **pause** with Escape
 - Every second jump, Peter does a front flip
-- Explore the meadow and interact with characters by approaching them
+- Quests: collect 15 carrots, return Jeremy Fisher's fishing rod, find Jack
+  Sharp the fish, and gather 5 magic stars for Ado's Sister
+- Cast: Peter Rabbit, Mr. McGregor, Mr. Todd, Jeremy Fisher, Jack Sharp,
+  Mercat, Quinn Rabbit, Ado's Sister, Fred, Lily Rabbit, Sammy Whiskers,
+  Spider
 
-## Quests
+### Peter Rabbit Flight Simulator
 
-- **Collect Carrots** — Find all 15 carrots scattered across the meadow
-- **Fishing Rod** — Find Jeremy Fisher's lost fishing rod and return it to him at the pond
-- **Find Jack Sharp** — After returning the rod, Jeremy Fisher asks you to find his friend Jack Sharp the fish near the edge of the map
-- **Magic Stars** — Ado's Sister the unicorn asks you to collect 5 golden stars
+Pilot a plane through a sequential ring course. Pitch, turn, and boost to a
+fast time.
 
-## Characters
+- **Fly** with arrow keys, **boost** with Shift, **pause** with Escape
 
-| Character | Description |
-|-----------|-------------|
-| **Peter Rabbit** | The player character — hops, collects, and flips |
-| **Mr. McGregor** | The farmer — if he catches you, it's game over |
-| **Mr. Todd** | A roaming fox with voice lines |
-| **Jeremy Fisher** | A frog by the pond who gives you the fishing rod and Jack Sharp quests |
-| **Jack Sharp** | A fish that appears after returning the fishing rod |
-| **Mercat** | Touch her for a speed boost — she welcomes you to the game |
-| **Quinn Rabbit** | Hints about finding Jeremy Fisher |
-| **Ado's Sister** | A unicorn who runs in circles and gives the star collection quest |
-| **Fred** | A baby dinosaur who hops and sends love hearts when you visit |
+### Bluey!
 
-## Getting Started
+A 2.5D side-scroller. Run, jump, and double-jump-flip your way across the
+platforms to the finish flag.
+
+- **Run** with arrow keys, **jump** with Space (twice for a flip)
+
+## Contributors
+
+- **Abigail** — game ideas, character designs, voiceovers, playtesting
+- **Brent Arcane** — engineering
+
+## Getting started
 
 ```bash
 npm install
-npm run dev
+npm run dev      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to play.
+## Adding a new game
 
-## Tech Stack
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full ruleset (per-game
+layout, naming conventions, registry, asset paths, shared building blocks).
+`npm run lint` enforces the mechanical parts.
+
+## Tech stack
 
 - **Next.js 16** with App Router
 - **React Three Fiber** / **Three.js** for 3D rendering

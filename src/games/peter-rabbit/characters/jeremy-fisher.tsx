@@ -12,6 +12,7 @@ import {
 } from "react";
 import * as THREE from "three";
 import * as SkeletonUtils from "three/examples/jsm/utils/SkeletonUtils.js";
+import { useProximityVoice } from "@/hooks/use-proximity-voice";
 import { FishingRodModel } from "../collectibles/fishing-rod";
 import {
   FISHING_ROD_DELIVER_RADIUS,
@@ -26,7 +27,6 @@ import {
   GROUND_Y,
   JEREMY_FISHER_VOICE_PATH,
 } from "../constants";
-import { useProximityVoice } from "../hooks/use-proximity-voice";
 
 export function JeremyFisher({
   rabbitRef,

@@ -1,7 +1,12 @@
+import { assetPath } from "@/lib/asset-path";
+
 // ─── Asset paths ────────────────────────────────────────────────────────────
 
-export const BLUEY_MODEL_PATH = "/games/bluey/models/bluey.glb";
-export const BLUEY_FAMILY_MODEL_PATH = "/games/bluey/models/bluey-family.glb";
+export const BLUEY_MODEL_PATH = assetPath("bluey", "models/bluey.glb");
+export const BLUEY_FAMILY_MODEL_PATH = assetPath(
+  "bluey",
+  "models/bluey-family.glb",
+);
 
 // ─── Bluey visuals ──────────────────────────────────────────────────────────
 

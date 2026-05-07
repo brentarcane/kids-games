@@ -4,6 +4,7 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { type RefObject, useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
+import { useAnimatedModel } from "@/hooks/use-animated-model";
 import {
   FARMER_CATCH_RADIUS,
   FARMER_MODEL_PATH,
@@ -15,7 +16,6 @@ import {
   FARMER_WAYPOINT_RADIUS,
   GROUND_Y,
 } from "../constants";
-import { useAnimatedModel } from "../hooks/use-animated-model";
 
 function FarmerModel({ paused }: { paused: boolean }) {
   const { clonedScene, animRootRef, walkActionRef } =

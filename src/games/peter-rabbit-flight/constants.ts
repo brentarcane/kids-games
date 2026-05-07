@@ -1,8 +1,15 @@
+import { assetPath } from "@/lib/asset-path";
+
 // ─── Asset paths ────────────────────────────────────────────────────────────
 
-export const PLANE_MODEL_PATH = "/games/peter-rabbit-flight/models/plane.glb";
-export const PILOT_MODEL_PATH =
-  "/games/peter-rabbit-flight/models/peter_rabbit.glb";
+export const PLANE_MODEL_PATH = assetPath(
+  "peter-rabbit-flight",
+  "models/plane.glb",
+);
+export const PILOT_MODEL_PATH = assetPath(
+  "peter-rabbit-flight",
+  "models/peter_rabbit.glb",
+);
 
 // ─── Plane visuals (tweak to taste) ─────────────────────────────────────────
 
