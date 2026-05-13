@@ -14,6 +14,7 @@ export const QUINN_MODEL_PATH = asset("models/characters/quinn_rabbit.glb");
 export const FROG_MODEL_PATH = asset("models/characters/frog.glb");
 export const CHICKEN_MODEL_PATH = asset("models/characters/chicken.glb");
 export const POND_MODEL_PATH = asset("models/environment/pond.glb");
+export const FARM_MODEL_PATH = asset("models/environment/farm.glb");
 export const CARROT_MODEL_PATH = asset("models/collectibles/carrot.glb");
 export const FISHING_ROD_MODEL_PATH = asset(
   "models/collectibles/fishing_rod.glb",
@@ -113,6 +114,14 @@ export const POND_SCALE = 0.02;
 export const POND_X = -55;
 export const POND_Z = 45;
 
+// ─── Farm ───────────────────────────────────────────────────────────────────
+
+export const FARM_SCALE = 1;
+export const FARM_X = 95;
+export const FARM_Z = 30;
+export const FARM_Y_OFFSET = 0;
+export const FARM_ROTATION_Y = -Math.PI / 2;
+
 // ─── Chicken & fences ───────────────────────────────────────────────────────
 
 export const CHICKEN_SCALE = 0.6;
@@ -190,6 +199,17 @@ export const SPIDER_SPAWN_Z = -40;
 export const SPIDER_SPEECH_RADIUS = 10;
 export const SPIDER_CIRCLE_RADIUS = 2;
 export const SPIDER_CIRCLE_SPEED = 1.2;
+
+// ─── Bluey (visiting roaming character) ─────────────────────────────────────
+
+export const BLUEY_MODEL_PATH = assetPath("bluey", "models/bluey.glb");
+export const BLUEY_SCALE = 0.5;
+export const BLUEY_MODEL_YAW = 0;
+export const BLUEY_ROAM_SPEED = 0.05;
+export const BLUEY_WAYPOINT_RADIUS = 3;
+export const BLUEY_ROAM_RANGE = 50;
+export const BLUEY_SPAWN_X = 50;
+export const BLUEY_SPAWN_Z = 20;
 
 // ─── Sammy Whiskers (skittish mouse) ────────────────────────────────────────
 

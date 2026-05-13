@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef } from "react";
 import type * as THREE from "three";
 import { CameraFollow } from "./camera-follow";
 import { AdosSister } from "./characters/ados-sister";
+import { Bluey } from "./characters/bluey";
 import { Fred } from "./characters/fred";
 import { JackSharp } from "./characters/jack-sharp";
 import { JeremyFisher } from "./characters/jeremy-fisher";
@@ -37,6 +38,7 @@ import {
   WORLD_RADIUS,
 } from "./constants";
 import { ChickenGarden } from "./environment/chicken-garden";
+import { Farm } from "./environment/farm";
 import { Flower } from "./environment/flower";
 // Environment
 import { Ground } from "./environment/ground";
@@ -209,6 +211,7 @@ export function Scene({
       <Ground />
       <SkyWall />
       <Path />
+      <Farm />
 
       {WORLD.trees.map((t) => (
         <Tree key={`t-${t.x}-${t.z}`} data={t} />
@@ -285,6 +288,7 @@ export function Scene({
       />
 
       <Fred rabbitRef={rabbitGroup} paused={paused} />
+      <Bluey rabbitRef={rabbitGroup} paused={paused} />
       <LilyRabbit rabbitRef={rabbitGroup} paused={paused} />
       <Spider rabbitRef={rabbitGroup} paused={paused} />
       <SammyWhiskers rabbitRef={rabbitGroup} paused={paused} />
